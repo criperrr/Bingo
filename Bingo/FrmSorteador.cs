@@ -55,5 +55,28 @@ namespace Bingo
                 cartela.ReceberNumero(num);
             }
         }
+        public void NotificarVitoria(FrmCartela vitoria)
+        {
+            foreach (FrmCartela c in cartelas)
+                if (c != vitoria)
+                    c.Close();
+            btnProximo.Enabled = false;
+        }
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            FrmHistorico frmHistorico = new FrmHistorico(sorteados);
+            frmHistorico.ShowDialog();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            foreach (FrmCartela c in cartelas)
+            {
+                c.Close();
+                anterior.Show();
+                this.Close();
+            }
+        }
     }
 }

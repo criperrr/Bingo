@@ -63,6 +63,7 @@
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnHistorico
             // 
@@ -73,6 +74,7 @@
             this.btnHistorico.TabIndex = 3;
             this.btnHistorico.Text = "&Histórico";
             this.btnHistorico.UseVisualStyleBackColor = true;
+            this.btnHistorico.Click += new System.EventHandler(this.btnHistorico_Click);
             // 
             // FrmSorteador
             // 
