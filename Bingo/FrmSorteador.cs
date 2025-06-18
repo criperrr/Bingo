@@ -14,7 +14,9 @@ namespace Bingo
     {
         Form anterior;
         int qtd;
+
         FrmCartela[] cartelas;
+
         bool[] sorteados;
         public FrmSorteador(Form anterior, int qtd)
         {
@@ -23,60 +25,78 @@ namespace Bingo
             this.qtd = qtd;
 
             sorteados = new bool[76];
-            for (int i = 0; i<sorteados.Length; i++)
+            for (int i = 0; i < sorteados.Length; i++)
             {
-               sorteados[i] = false;
+                sorteados[i] = false;
             }
+
             cartelas = new FrmCartela[qtd];
-            for (int i = 0; i<qtd; i++)
+            for (int i = 0; i < qtd; i++)
             {
                 cartelas[i] = new FrmCartela(this, i);
                 cartelas[i].Show();
             }
         }
 
-        private void FrmSorteador_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            anterior.Show();
-        }
-
         private void btnProximo_Click(object sender, EventArgs e)
         {
             int num;
             Random r = new Random();
+
             do
             {
                 num = r.Next(1, 76);
             } while (sorteados[num]);
+
             sorteados[num] = true;
-            foreach(FrmCartela cartela in cartelas)
+
+            foreach (FrmCartela cartela in cartelas)
             {
-                lblNumero.Text = num.ToString();
                 cartela.ReceberNumero(num);
             }
+
+            lblNumero.Text = num.ToString();
         }
-        public void NotificarVitoria(FrmCartela vitoria)
+
+        public void NotificarVitoria(FrmCartela cartela)
         {
             foreach (FrmCartela c in cartelas)
-                if (c != vitoria)
+            {
+                if (c != cartela)
+                {
                     c.Close();
-            btnProximo.Enabled = false;
+                }
+                btnProximo.Enabled = false;
+            }
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
-            FrmHistorico frmHistorico = new FrmHistorico(sorteados);
-            frmHistorico.ShowDialog();
+            FrmHistorico f = new FrmHistorico(sorteados);
+            f.ShowDialog();
+        }
+
+        private void FrmSorteador_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Deseja encerrar este jogo?", "Bingo", MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                foreach (FrmCartela cartela in cartelas)
+                {
+                    cartela.Close();
+                }
+                anterior.Show();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            foreach (FrmCartela c in cartelas)
-            {
-                c.Close();
-                anterior.Show();
-                this.Close();
-            }
+            Close();
         }
     }
 }

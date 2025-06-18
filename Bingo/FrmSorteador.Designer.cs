@@ -37,18 +37,20 @@
             // lblNumero
             // 
             this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumero.Location = new System.Drawing.Point(12, 174);
+            this.lblNumero.Location = new System.Drawing.Point(16, 214);
+            this.lblNumero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(456, 117);
+            this.lblNumero.Size = new System.Drawing.Size(608, 144);
             this.lblNumero.TabIndex = 0;
             this.lblNumero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnProximo
             // 
             this.btnProximo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProximo.Location = new System.Drawing.Point(30, 121);
+            this.btnProximo.Location = new System.Drawing.Point(40, 149);
+            this.btnProximo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(228, 50);
+            this.btnProximo.Size = new System.Drawing.Size(304, 62);
             this.btnProximo.TabIndex = 1;
             this.btnProximo.Text = "&Próximo Número";
             this.btnProximo.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(317, 359);
+            this.btnCancelar.Location = new System.Drawing.Point(423, 442);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(132, 50);
+            this.btnCancelar.Size = new System.Drawing.Size(176, 62);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -68,9 +71,10 @@
             // btnHistorico
             // 
             this.btnHistorico.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorico.Location = new System.Drawing.Point(30, 359);
+            this.btnHistorico.Location = new System.Drawing.Point(40, 442);
+            this.btnHistorico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHistorico.Name = "btnHistorico";
-            this.btnHistorico.Size = new System.Drawing.Size(132, 50);
+            this.btnHistorico.Size = new System.Drawing.Size(176, 62);
             this.btnHistorico.TabIndex = 3;
             this.btnHistorico.Text = "&Histórico";
             this.btnHistorico.UseVisualStyleBackColor = true;
@@ -78,17 +82,18 @@
             // 
             // FrmSorteador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 450);
+            this.ClientSize = new System.Drawing.Size(640, 554);
             this.Controls.Add(this.btnHistorico);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnProximo);
             this.Controls.Add(this.lblNumero);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmSorteador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSorteador";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSorteador_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSorteador_FormClosing);
             this.ResumeLayout(false);
 
         }
